@@ -1,0 +1,72 @@
+body {
+    font-family: Philosopher;
+    background-color: #DDD;
+}
+
+.container {
+    padding: 20px;
+}
+.icon{
+    font-size: 20px;
+}
+
+.container h2 span {
+    color: rgb(248, 42, 42);
+}
+
+.input-Quantity {
+    width: 60px;
+}
+
+.container .rr {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: darkred;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .rr:hover {
+    background: darkgreen;
+}
+
+.container h4 {
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+.container h6 {
+    margin-bottom: 20px;
+    color: red;
+}
+
+.modal-body button {
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(231, 20, 20);
+    color: white;
+}
+
+.table .tt {
+    color: red;
+    font-size: 23px;
+}
+
+.img-responsive {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: all .3s ease-in-out;
+
+}
+
+.img-scale {
+    overflow: hidden;
+}
+
+
+
+img:hover {
+    transform: scale(1.1);
+}

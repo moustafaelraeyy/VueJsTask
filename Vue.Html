@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Philosopher&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="fontawesome.min.css">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="Vue.Css">
+
+    <div id="MustafaApp" class="container">
+        <h2 class="text-center"> <span>Mustafa Atef ElRaey </span> | VueJs Task
+        </h2>
+        <div class="text-right ">
+            <button class="btn btn-outline-danger " data-toggle="modal" data-target="#cartModal">
+                <i class="fas fa-shopping-cart icon"></i>
+                ({{NewItemsCart.length}})
+            </button>
+        </div>
+
+        <!-- Modal in Bootstrap4 -->
+        <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-label="Close"> </button>
+                        <h4 class="modal-title" id="myModalLabel">Your Selections Items</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!---:item el Props w el NewItemsCart Array el Hnmlaha-->
+                        <!---:items de el binding-->
+                        <shopping-cart inline-template :items="NewItemsCart">
+                            <div>
+                                <!---Cart Items in Modal-->
+                                <table class="table ">
+                                    <tr v-for="(item,index) in items">
+                                        <td>{{item.nameOfitem}}</td>
+                                        <td>Quantity:
+                                            <input v-model="item.Quantity" class="form-control input-Quantity"
+                                                type="number" min="1">
+                                        </td>
+                                        <td class="text-right">${{item.price | Currency}}</td>
+                                        <td>
+                                            <button @click="DeleteItem(index)"><i class="fa fa-minus"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr v-if="items.length === 0">
+                                        <td class="text-center">Cart is empty</td>
+                                    </tr>
+                                    <tr v-if="items.length > 0">
+                                        <td></td>
+                                        <td class="text-right"> Total Price</td>
+                                        <td class="text-right tt">${{TotalPrice}}</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- /.container -->
+                        </shopping-cart>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-3 col-sm-6 text-center" v-for="item in items">
+                    <div class="img-scale">
+                        <img class="img-responsive" :src="item.image">
+                    </div>
+                    <h4>{{ item.nameOfitem }}</h4>
+                    <h6>${{ item.price}} </h6>
+
+
+                    <button @click="addItemToCart(item)" class=" rr">Add to Cart <i
+                            class="fas fa-hand-pointer"></i></button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script src="jquery-3.4.1.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="all.min.js"></script>
+    <script src="vuee.js"></script>
+
+
+</body>
+
+</html>
